@@ -7,16 +7,16 @@
         </nav>
     </header>
     <div class="">
-      <div class="row">
-        <div class="col-sm-2 content">
+      <b-row>
+        <b-col sm="2" class="content">
           <div class="note-content">
             <h4>Mes alertes</h4>
             <h4>Mes assets</h4>
             <h4>Mes contacts</h4>
             <h4>Profil</h4>
           </div>
-        </div>
-        <div class="col-sm-10">
+        </b-col>
+        <b-col sm="10">
             <div class="a">
             <h2>Profil</h2>
             </div>
@@ -29,18 +29,17 @@
               <br>
               <b-button @click.prevent="clickLogin()"  variant="primary" class=" btn-login">Login</b-button>
             </div>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </div>
   </div>
 </template>
     
 <script>
 import Vue from 'vue'
-// import Ajax from 'ajax'
 import axios from 'axios'
+// import router from '../routes';
 // import VueRouter from 'vue-router';
-import router from '../routes';
     
 // Vue.use(VueRouter);
     
@@ -52,16 +51,15 @@ export default  class login extends Vue  {
       name: '',
       pass: '',
   }
+  router
   listUser = null
-
-  
     async clickLogin() {
       await axios.get('http://localhost:8002/getdata')
       .then(response => (this.listUser = response.data.data))
       this.listUser.forEach(element => 
       {
           if (element.name == this.fromLogin.name && element.pass == this.fromLogin.pass) {
-            router.push({name: 'user'});
+              this.$router.push({ path: '/user' })
           }
       })
   }

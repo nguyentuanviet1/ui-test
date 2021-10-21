@@ -16,6 +16,8 @@
     "express": "^4.17.1",
     "routes": "^2.1.0",
     "vue": "^2.6.11",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.5.2"
   },
   "devDependencies": {

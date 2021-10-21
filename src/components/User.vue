@@ -7,68 +7,66 @@
         </nav>
     </header>
     <div class="">
-      <div class="row">
-        <div class="col-sm-2 content">
+      <b-row>
+        <b-col sm="2" class="content">
           <div class="note-content">
             <h4>Mes alertes</h4>
             <h4>Mes assets</h4>
             <h4>Mes contacts</h4>
             <h4>Profil</h4>
           </div>
-        </div>
-        <div class="col-sm-10">
+        </b-col>
+        <b-col sm="10">
             <div class="a">
             <h2>Profil</h2>
             </div>
             <div class="container note-content">
-              <label class="name"><b>Nom</b></label>
-              <input class="style-input" type="text" placeholder="Racine ">
-              <br>
+              <div class="box">
+              <span class="name"><b>Nom</b></span>
+              <b-form-input class="style-input"  placeholder="Racine " />
+              </div>
+              <div class="box">
               <label class="name"><b>Prénom</b></label>
-              <input class="style-input" type="text" placeholder="Jean">
-              <br>
+              <b-form-input class="style-input"  placeholder="Jean" />
+              </div>
+              <div class="box">
               <label class="name"><b>Fonction</b></label>
-              <input class="style-input" type="text" placeholder="Directeur de la publication">
-              <br>
+              <b-form-input class="style-input"  placeholder="Directeur de la publication" />
+              </div>
+              <div class="box">
               <label class="name"><b>Adresse email</b></label>
-              <input class="style-input" type="text" placeholder="jean.racine@societe.com" >
-              <br>
+              <b-form-input class="style-input"  placeholder="jean.racine@societe.com" />
+              </div>
               <div class="box">
               <label class="name"><b>Numéro de téléphone</b></label>
-              <div class="input-group mb-3 dropdown-data">
-                <button type="button" class="btn btn-outline-secondary">Action</button>
-                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="visually-hidden">+30</span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-              </div>
-              <div class="phone-number">
-              <input type="text" placeholder="687654321" name="uname" value="">
-              </div>
+              <div><b-input-group>
+                <b-form-input ></b-form-input>
+                <template #append>
+                  <b-dropdown text="Dropdown"  variant="outline-secondary ">
+                    <b-dropdown-item>Action C</b-dropdown-item>
+                    <b-dropdown-item>Action D</b-dropdown-item>
+                  </b-dropdown>
+                </template>
+              </b-input-group> </div>
+              <b-form-input class="phone-input"  placeholder="jean.racine@societe.com" />
               </div>
             </div>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'user',
-  props: {
-    msg: String
+  // import Login from '../components/Login.vue';
+import Vue from 'vue'
+import { BInputGroup } from 'bootstrap-vue'
+Vue.component('b-input-group', BInputGroup)
+  export default {
+    name: 'user',
   }
-}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .a {
   text-align: center;
@@ -82,14 +80,14 @@ export default {
 }
 .name {
   width: 180px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .box {
     display: flex;
     flex-wrap: nowrap;
+    margin-top: 10px;
 }
 .dropdown-data {
-  margin-top: 20px;
   width: 120px;
 }
 .phone-number {
@@ -97,10 +95,23 @@ export default {
 }
 .style-input {
   width: 400px;
+  height: 40px;
 }
 .absolute {
   position: absolute;
   right: 0;
   /* color:; */
+}
+.input-group {
+  width: 140px;
+  height: 40px;
+  margin-right: 20px;
+}
+.input-dropdown {
+  width: 60px;
+}
+.phone-input {
+  width: 240px;
+  height: 40px;
 }
 </style>
