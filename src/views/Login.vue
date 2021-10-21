@@ -56,7 +56,7 @@ export default  class login extends Vue  {
 
   
     async clickLogin() {
-      await axios.get('http://192.168.1.5:8002/getdata')
+      await axios.get('http://localhost:8002/getdata')
       .then(response => (this.listUser = response.data.data))
       this.listUser.forEach(element => 
       {
